@@ -1,0 +1,7 @@
+{
+  "tourists": [
+    {"id": "IND-01", "name": "Budi", "status": "Waiting"},
+    {"id": "IND-02", "name": "Siti", "status": "Waiting"}
+  ]
+}
+
