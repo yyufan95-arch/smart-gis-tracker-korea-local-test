@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Smart Tour GIS 우석대학교 캠퍼스 추적 시스템</title>
+    <title>Smart Tour GIS 우석대학교 캠퍼스 인증 시스템</title>
     <!-- 1. Leaflet 라이브러리 로드 -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -102,8 +102,8 @@
     <div id="sidebar">
         <h1>Smart Tour GIS</h1>
         <div class="info-text">
-            <b>미션 대상:</b> 우석대학교 캠퍼스 (4개 건물)<br>
-            <b>좌표 시스템:</b> WGS84 (우석대 캠퍼스)<br>
+            <b>미션 대상:</b> 우석대학교 캠퍼스<br>
+            <b>좌표 시스템:</b> WGS84 (우석대)<br>
             <b>상태:</b> <span id="gpsStatus">GPS 권한을 허용해 주세요</span>
         </div>
 
@@ -122,17 +122,17 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // 지도 초기화 (우석대 문화관 좌표로 중심 설정)
+            // 지도 초기화 (우석대 중심)
             const map = L.map('map', { zoomControl: false }).setView([35.9119467, 127.0659829], 16);
 
-            // 타일 레이어
+            // 타일 레이어 (CartoDB)
             L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; OpenStreetMap'
             }).addTo(map);
 
             L.control.zoom({ position: 'topright' }).addTo(map);
 
-            // A/B/C/D 인증 지점 (우석대 4개 건물 좌표)
+            // ✅ 우석대 4개 지점 좌표로 변경
             const points = [
                 { id: 'A', name: "A-문화관", lat: 35.9119467, lng: 127.0659829, radius: 50 },
                 { id: 'B', name: "B-정궁관", lat: 35.9121794, lng: 127.0665127, radius: 50 },
