@@ -1,5 +1,6 @@
-main 브랜치
-├─ database
-├─ docs(api)
-├─ frontend(html/css/js)
-└─ README
+
+## 🎯 주요 모듈 설명
+- **frontend**: 구글 맵 API를 활용한 우석대 주변 지도 표시, GPS 기반 자동 인증 기능 구현
+- **database**: 사용자의 인증 기록 및 위치 데이터 저장·관리
+- **docs/api**: 프론트엔드와 백엔드 간 데이터 통신을 위한 API 명세
+- **main.go**: Go 기반 서버의 기본 설정 및 프로젝트 실행 진입점
