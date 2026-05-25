@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Smart Tour GIS 인도네시아 관광객 추적 시스템</title>
+    <title>Smart Tour GIS 우석대학교 캠퍼스 추적 시스템</title>
     <!-- 1. Leaflet 라이브러리 로드 -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -102,15 +102,15 @@
     <div id="sidebar">
         <h1>Smart Tour GIS</h1>
         <div class="info-text">
-            <b>미션 대상:</b> 인도네시아 단체 (20명)<br>
-            <b>좌표 시스템:</b> WGS84 (자카르타)<br>
+            <b>미션 대상:</b> 우석대학교 캠퍼스 (4개 건물)<br>
+            <b>좌표 시스템:</b> WGS84 (우석대 캠퍼스)<br>
             <b>상태:</b> <span id="gpsStatus">GPS 권한을 허용해 주세요</span>
         </div>
 
-        <div class="task-item waiting" id="step-A">Step A. 신원 인증 및 체크인</div>
-        <div class="task-item waiting" id="step-B">Step B. 문화 체험 참여</div>
-        <div class="task-item waiting" id="step-C">Step C. 비용 결제 완료</div>
-        <div class="task-item waiting" id="step-D">Step D. 전체 미션 달성</div>
+        <div class="task-item waiting" id="step-A">Step A. 문화관 인증</div>
+        <div class="task-item waiting" id="step-B">Step B. 정궁관 인증</div>
+        <div class="task-item waiting" id="step-C">Step C. 체육관 인증</div>
+        <div class="task-item waiting" id="step-D">Step D. 학생관 인증 완료</div>
 
         <button class="btn" id="authBtn" disabled>GPS 권한 대기 중...</button>
 
@@ -122,22 +122,22 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // 지도 초기화
-            const map = L.map('map', { zoomControl: false }).setView([-6.2088, 106.8456], 13);
+            // 지도 초기화 (우석대 문화관 좌표로 중심 설정)
+            const map = L.map('map', { zoomControl: false }).setView([35.9119467, 127.0659829], 16);
 
-            // 타일 레이어 (CartoDB)
+            // 타일 레이어
             L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; OpenStreetMap'
             }).addTo(map);
 
             L.control.zoom({ position: 'topright' }).addTo(map);
 
-            // A/B/C/D 인증 지점 (고정 좌표)
+            // A/B/C/D 인증 지점 (우석대 4개 건물 좌표)
             const points = [
-                { id: 'A', name: "A-신원 인증 지점", lat: -6.2088, lng: 106.8456, radius: 200 }, // 200m 반경 내 인증
-                { id: 'B', name: "B-문화 체험 지점", lat: -6.2100, lng: 106.8500, radius: 200 },
-                { id: 'C', name: "C-비용 결제 지점", lat: -6.2050, lng: 106.8400, radius: 200 },
-                { id: 'D', name: "D-최종 도착 지점", lat: -6.2120, lng: 106.8350, radius: 200 }
+                { id: 'A', name: "A-문화관", lat: 35.9119467, lng: 127.0659829, radius: 50 },
+                { id: 'B', name: "B-정궁관", lat: 35.9121794, lng: 127.0665127, radius: 50 },
+                { id: 'C', name: "C-체육관", lat: 35.9126749, lng: 127.0685961, radius: 50 },
+                { id: 'D', name: "D-학생관", lat: 35.9117154, lng: 127.0666587, radius: 50 }
             ];
 
             const markers = {};
@@ -204,7 +204,7 @@
                         } else {
                             userMarker.setLatLng([lat, lng]);
                         }
-                        map.setView([lat, lng], 15);
+                        map.setView([lat, lng], 16);
 
                         // 현재 단계 인증 체크
                         if (currentStepIdx < points.length) {
@@ -264,4 +264,3 @@
     </script>
 </body>
 </html>
-
