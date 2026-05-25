@@ -1,0 +1,35 @@
+{{define "content"}}
+<h2>积分记录查询结果</h2>
+<form method="post" action="/queryUserPoints">
+  UserID: <input type="text" name="userID">
+  <input type="submit" value="查询">
+</form>
+
+{{if .Flag}}<p style="color:red">{{.Msg}}</p>{{end}}
+
+{{if .Records}}
+<table border="1">
+  <tr>
+    <th>RecordID</th>
+    <th>UserID</th>
+    <th>Action</th>
+    <th>Points</th>
+    <th>Time</th>
+    <th>Remark</th>
+  </tr>
+  {{range .Records}}
+  <tr>
+    <td>{{.RecordID}}</td>
+    <td>{{.UserID}}</td>
+    <td>{{.Action}}</td>
+    <td>{{.Points}}</td>
+    <td>{{.Timestamp}}</td>
+    <td>{{.Remark}}</td>
+  </tr>
+  {{end}}
+</table>
+{{end}}
+
+<a href="/index">返回首页</a>
+{{end}}
+

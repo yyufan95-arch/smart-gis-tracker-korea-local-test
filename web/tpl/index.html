@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>区块链积分钱包系统首页</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link href="/static/css/reset.css" rel="stylesheet" />
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f1f1f1;
+      font-family: '微软雅黑', Microsoft YaHei, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .main {
+      max-width: 1200px;
+      background: #fff;
+      margin: 50px auto;
+      padding: 40px 50px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+    }
+
+    .main > h2 {
+      text-align: center;
+      font-size: 28px;
+      color: #2c3e50;
+      margin-bottom: 50px;
+      user-select: none;
+    }
+
+    .modules-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: nowrap;
+    }
+
+    .h_m_div3 {
+      flex: 0 0 360px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 25px 30px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .h_m_div3:hover {
+      box-shadow: 0 8px 20px rgba(28, 135, 234, 0.25);
+      border-color: #1a73e8;
+    }
+
+    .h_m_div3_t h3 {
+      font-size: 22px;
+      color: #1a73e8;
+      margin-bottom: 15px;
+      user-select: none;
+    }
+
+    .h_m_div3_t {
+      margin-bottom: 20px;
+      flex-shrink: 0;
+    }
+
+    .h_m_div3_ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+      flex-grow: 1;
+    }
+
+    .h_m_div3_ul li {
+      margin-bottom: 14px;
+    }
+
+    .h_m_div3_ul li span {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 6px;
+      user-select: none;
+    }
+
+    .h_m_div3_ul li a {
+      color: #333;
+      text-decoration: none;
+      display: block;
+      font-size: 15px;
+      transition: color 0.2s ease;
+    }
+
+    .h_m_div3_ul li a:hover {
+      color: #1a73e8;
+      text-decoration: underline;
+    }
+
+    .h_m_div3_b {
+      text-align: center;
+      border-top: 1px solid #ddd;
+      padding-top: 15px;
+      font-size: 15px;
+      user-select: none;
+    }
+
+    .h_m_div3_b a {
+      color: #1a73e8;
+      margin: 0 12px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .h_m_div3_b a:hover {
+      text-decoration: underline;
+      color: #155ab6;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <h2>区块链积分钱包系统首页</h2>
+
+    <div class="modules-container">
+      <!-- 积分总览模块 -->
+      <div class="h_m_div3">
+        <div class="h_m_div3_t">
+          <h3>积分总览</h3>
+          查看您的当前积分余额、积分等级和历史记录。
+        </div>
+        <ul class="h_m_div3_ul">
+          <li>
+            <span>我的积分</span>
+	    <a href="/createAccount">创建账户</a>
+	    <a href="/mint">铸造积分</a>
+             <a href="/getBalance">查询余额</a>
+            <a href="/points/history">积分变动记录</a>
+          </li>
+          <li>
+            <span>积分排行</span>
+            <a href="/rank">积分排行</a>
+            <a href="/points/rules">积分规则</a>
+          </li>
+        </ul>
+        <div class="h_m_div3_b">
+          <a href="/points/balance">查看积分</a> | <a href="/points/history">积分记录</a>
+        </div>
+      </div>
+
+      <!-- 积分获取模块 -->
+      <div class="h_m_div3">
+        <div class="h_m_div3_t">
+          <h3>如何获取积分</h3>
+          完成旅游打卡、上传消费凭证等方式轻松获得积分。
+        </div>
+        <ul class="h_m_div3_ul">
+          <li>
+            <span>任务与活动</span>
+            <a href="/tasks">每日任务</a>
+            <a href="/events">活动参与</a>
+          </li>
+          <li>
+            <span>上传凭证</span>
+            <a href="/upload">上传截图/发票</a>
+            <a href="/location">旅游打卡</a>
+          </li>
+        </ul>
+        <div class="h_m_div3_b">
+          <a href="/tasks">查看任务</a> | <a href="/upload">上传消费凭证</a>
+        </div>
+      </div>
+
+      <!-- 积分使用模块 -->
+      <div class="h_m_div3">
+        <div class="h_m_div3_t">
+          <h3>积分使用</h3>
+          积分可用于兑换优惠、抽奖、门票等多种权益。
+        </div>
+        <ul class="h_m_div3_ul">
+          <li>
+            <span>积分兑换</span>
+	    <a href="/transfer">积分转账</a>
+            <a href="/redeem/goods">商品兑换</a>
+            <a href="/ticketTransfer">门票转账</a>
+          </li>
+          <li>
+            <span>其他用途</span>
+            <a href="/lottery">积分抽奖</a>
+            <a href="/vote">参与治理投票</a>
+          </li>
+        </ul>
+        <div class="h_m_div3_b">
+          <a href="/redeem">立即兑换</a> | <a href="/lottery">抽奖中心</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+</body>
+</html>
+

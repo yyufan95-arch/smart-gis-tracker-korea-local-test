@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>积分排行榜</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+    <style>
+        body { background: #f5f7fa; font-family: '微软雅黑'; }
+        .container { margin-top: 60px; }
+        h2 { text-align: center; margin-bottom: 20px; }
+        table { width: 100%; background: #fff; border-radius: 8px; overflow: hidden; }
+        th, td { padding: 12px; text-align: center; }
+        th { background-color: #1a73e8; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        tr:hover { background-color: #e1e7f0; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>🏆 积分排行榜</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>排名</th>
+                <th>用户ID</th>
+                <th>积分</th>
+            </tr>
+        </thead>
+        <tbody>
+        {{range $index, $acc := .Accounts}}
+            <tr>
+                <td>{{add $index 1}}</td>
+                <td>{{$acc.ID}}</td>
+                <td>{{$acc.Balance}}</td>
+            </tr>
+        {{end}}
+        </tbody>
+    </table>
+    {{if .Msg}}
+    <p class="text-center text-muted mt-4">{{.Msg}}</p>
+    {{end}}
+</div>
+</body>
+</html>
+

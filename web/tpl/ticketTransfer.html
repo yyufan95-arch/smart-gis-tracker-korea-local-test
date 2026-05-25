@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>门票转账</title>
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+  <style>
+    body { background-color: #f5f7fa; font-family: '微软雅黑', sans-serif; margin: 0; }
+    .container { max-width: 600px; margin: 100px auto; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    h2 { text-align: center; margin-bottom: 30px; color: #2c3e50; }
+    label { font-weight: 600; margin-bottom: 6px; display: block; }
+    input, button { width: 100%; padding: 10px; margin-bottom: 16px; font-size: 16px; }
+    button { background-color: #1a73e8; color: white; border: none; border-radius: 6px; }
+    button:hover { background-color: #155ab6; }
+    .msg { text-align: center; font-size: 16px; color: #333; margin-top: 12px; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>门票转账（后台）</h2>
+  <form action="/ticket/transfer" method="post">
+    <label>票号 (ticketId)</label>
+    <input type="text" name="ticketId" placeholder="例如：EVT_A_000001" required />
+    <label>转出方 DID (fromDid，可留空跳过校验)</label>
+    <input type="text" name="fromDid" placeholder="可留空，或填当前持有人 DID" />
+    <label>接收方 DID (toDid)</label>
+    <input type="text" name="toDid" placeholder="粘贴接收方 DID" required />
+    <button type="submit">确认转票</button>
+  </form>
+  <button type="button" onclick="window.location.href='/index'"
+        style="width: 100%; padding: 10px; background-color: #6c757d; color: white; border: none; border-radius: 6px; margin-top: 10px;">
+    返回首页
+  </button>
+
+  {{if .Msg}}
+  <div class="msg">
+    {{.Msg}}<br/>{{if .TxID}}交易ID: {{.TxID}}{{end}}
+  </div>
+  {{end}}
+</div>
+</body>
+</html>
+
