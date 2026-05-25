@@ -1,1 +1,0 @@
-# smart-gis-tracker-indonesia-simulation
