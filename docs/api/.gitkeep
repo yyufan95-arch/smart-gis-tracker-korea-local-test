@@ -1,0 +1,21 @@
+# API 接口文档
+
+## 基础信息
+- 基础URL: `/api/v1`
+- 数据格式: `application/json`
+- 认证方式: Bearer Token
+
+---
+
+### 1. 用户位置上报
+**请求**
+- 方法: `POST`
+- 路径: `/location`
+- 请求体:
+```json
+{
+  "userId": "string",
+  "latitude": "number",
+  "longitude": "number",
+  "timestamp": "ISO datetime string"
+}
